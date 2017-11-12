@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="firmaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Surname" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Patronymic" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Citizenship" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="birthdate" Nullable="false" Type="date" />
+          <Property Name="identification_number" Nullable="false" Type="int" />
+          <Property Name="passport_ID" Nullable="false" Type="int" />
+          <Property Name="passport_Series" Nullable="false" MaxLength="10" Type="char" />
+          <Property Name="residential_address" Nullable="false" MaxLength="100" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="clients_servises">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="id_client" Nullable="false" Type="int" />
+          <Property Name="id_service" Nullable="false" Type="int" />
+          <Property Name="date" Nullable="false" Type="date" />
+          <Property Name="Price" Type="money" />
+          <Property Name="id_working_staff" Type="int" />
+        </EntityType>
+        <EntityType Name="Consultations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="name" Nullable="false" MaxLength="250" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="document_type" Nullable="false" MaxLength="100" Type="nvarchar" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'firma.dbo.documents_data' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="documents_data">
+          <Key>
+            <PropertyRef Name="title" />
+            <PropertyRef Name="id_document" />
+          </Key>
+          <Property Name="title" Nullable="false" MaxLength="100" Type="nvarchar" />
+          <Property Name="id_document" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="kinds_of_services">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="100" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="records_on_consultations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="id_client" Nullable="false" Type="int" />
+          <Property Name="id_working_staff" Nullable="false" Type="int" />
+          <Property Name="date" Nullable="false" Type="date" />
+          <Property Name="id_consultations" Nullable="false" Type="int" />
+          <Property Name="finished" Nullable="false" Type="bit" />
+          <Property Name="additional_text" Type="text" />
+        </EntityType>
+        <EntityType Name="requests_documents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="id_clients" Nullable="false" Type="int" />
+          <Property Name="id_servises" Nullable="false" Type="int" />
+          <Property Name="id_document" Nullable="false" Type="int" />
+          <Property Name="data" Nullable="false" Type="date" />
+          <Property Name="status" MaxLength="5" Type="binary" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="description" Nullable="false" MaxLength="250" Type="nvarchar" />
+          <Property Name="id_kind_of_services" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="working_staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Surname" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Patronymic" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Post" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Salary" Type="money" />
+        </EntityType>
+        <Association Name="FK_clients_servises_Clients1">
+          <End Type="Self.Clients" Multiplicity="1" Role="Clients" />
+          <End Type="Self.clients_servises" Multiplicity="*" Role="clients_servises" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients_servises">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clients_servises_Services">
+          <End Type="Self.Services" Multiplicity="1" Role="Services" />
+          <End Type="Self.clients_servises" Multiplicity="*" Role="clients_servises" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients_servises">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clients_servises_working_staff">
+          <End Type="Self.working_staff" Multiplicity="0..1" Role="working_staff" />
+          <End Type="Self.clients_servises" Multiplicity="*" Role="clients_servises" />
+          <ReferentialConstraint>
+            <Principal Role="working_staff">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients_servises">
+              <PropertyRef Name="id_working_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_documents_data_Documents">
+          <End Type="Self.Documents" Multiplicity="1" Role="Documents" />
+          <End Type="Self.documents_data" Multiplicity="*" Role="documents_data" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="documents_data">
+              <PropertyRef Name="id_document" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_records_on_consultations_Clients">
+          <End Type="Self.Clients" Multiplicity="1" Role="Clients" />
+          <End Type="Self.records_on_consultations" Multiplicity="*" Role="records_on_consultations" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="records_on_consultations">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_records_on_consultations_Consultations">
+          <End Type="Self.Consultations" Multiplicity="1" Role="Consultations" />
+          <End Type="Self.records_on_consultations" Multiplicity="*" Role="records_on_consultations" />
+          <ReferentialConstraint>
+            <Principal Role="Consultations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="records_on_consultations">
+              <PropertyRef Name="id_consultations" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_records_on_consultations_working_staff">
+          <End Type="Self.working_staff" Multiplicity="1" Role="working_staff" />
+          <End Type="Self.records_on_consultations" Multiplicity="*" Role="records_on_consultations" />
+          <ReferentialConstraint>
+            <Principal Role="working_staff">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="records_on_consultations">
+              <PropertyRef Name="id_working_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_requests_documents_Clients">
+          <End Type="Self.Clients" Multiplicity="1" Role="Clients" />
+          <End Type="Self.requests_documents" Multiplicity="*" Role="requests_documents" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="requests_documents">
+              <PropertyRef Name="id_clients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_requests_documents_Documents">
+          <End Type="Self.Documents" Multiplicity="1" Role="Documents" />
+          <End Type="Self.requests_documents" Multiplicity="*" Role="requests_documents" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="requests_documents">
+              <PropertyRef Name="id_document" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_requests_documents_Services">
+          <End Type="Self.Services" Multiplicity="1" Role="Services" />
+          <End Type="Self.requests_documents" Multiplicity="*" Role="requests_documents" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="requests_documents">
+              <PropertyRef Name="id_servises" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_kinds_of_services">
+          <End Type="Self.kinds_of_services" Multiplicity="1" Role="kinds_of_services" />
+          <End Type="Self.Services" Multiplicity="*" Role="Services" />
+          <ReferentialConstraint>
+            <Principal Role="kinds_of_services">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="id_kind_of_services" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="firmaModelStoreContainer">
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clients_servises" EntityType="Self.clients_servises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Consultations" EntityType="Self.Consultations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kinds_of_services" EntityType="Self.kinds_of_services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="records_on_consultations" EntityType="Self.records_on_consultations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="requests_documents" EntityType="Self.requests_documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="working_staff" EntityType="Self.working_staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="documents_data" EntityType="Self.documents_data" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [documents_data].[title] AS [title], 
+    [documents_data].[id_document] AS [id_document]
+    FROM [dbo].[documents_data] AS [documents_data]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_clients_servises_Clients1" Association="Self.FK_clients_servises_Clients1">
+            <End EntitySet="Clients" Role="Clients" />
+            <End EntitySet="clients_servises" Role="clients_servises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clients_servises_Services" Association="Self.FK_clients_servises_Services">
+            <End EntitySet="Services" Role="Services" />
+            <End EntitySet="clients_servises" Role="clients_servises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clients_servises_working_staff" Association="Self.FK_clients_servises_working_staff">
+            <End EntitySet="working_staff" Role="working_staff" />
+            <End EntitySet="clients_servises" Role="clients_servises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_documents_data_Documents" Association="Self.FK_documents_data_Documents">
+            <End EntitySet="Documents" Role="Documents" />
+            <End EntitySet="documents_data" Role="documents_data" />
+          </AssociationSet>
+          <AssociationSet Name="FK_records_on_consultations_Clients" Association="Self.FK_records_on_consultations_Clients">
+            <End EntitySet="Clients" Role="Clients" />
+            <End EntitySet="records_on_consultations" Role="records_on_consultations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_records_on_consultations_Consultations" Association="Self.FK_records_on_consultations_Consultations">
+            <End EntitySet="Consultations" Role="Consultations" />
+            <End EntitySet="records_on_consultations" Role="records_on_consultations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_records_on_consultations_working_staff" Association="Self.FK_records_on_consultations_working_staff">
+            <End EntitySet="working_staff" Role="working_staff" />
+            <End EntitySet="records_on_consultations" Role="records_on_consultations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_requests_documents_Clients" Association="Self.FK_requests_documents_Clients">
+            <End EntitySet="Clients" Role="Clients" />
+            <End EntitySet="requests_documents" Role="requests_documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_requests_documents_Documents" Association="Self.FK_requests_documents_Documents">
+            <End EntitySet="Documents" Role="Documents" />
+            <End EntitySet="requests_documents" Role="requests_documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_requests_documents_Services" Association="Self.FK_requests_documents_Services">
+            <End EntitySet="Services" Role="Services" />
+            <End EntitySet="requests_documents" Role="requests_documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_kinds_of_services" Association="Self.FK_Services_kinds_of_services">
+            <End EntitySet="kinds_of_services" Role="kinds_of_services" />
+            <End EntitySet="Services" Role="Services" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="firmaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Citizenship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="identification_number" Type="Int32" Nullable="false" />
+          <Property Name="passport_ID" Type="Int32" Nullable="false" />
+          <Property Name="passport_Series" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="residential_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="clients_servises" Relationship="Self.FK_clients_servises_Clients1" FromRole="Clients" ToRole="clients_servises" />
+          <NavigationProperty Name="records_on_consultations" Relationship="Self.FK_records_on_consultations_Clients" FromRole="Clients" ToRole="records_on_consultations" />
+          <NavigationProperty Name="requests_documents" Relationship="Self.FK_requests_documents_Clients" FromRole="Clients" ToRole="requests_documents" />
+        </EntityType>
+        <EntityType Name="clients_servises">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_client" Type="Int32" Nullable="false" />
+          <Property Name="id_service" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Price" Type="Decimal" Scale="4" Precision="19" />
+          <Property Name="id_working_staff" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_clients_servises_Clients1" FromRole="clients_servises" ToRole="Clients" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_clients_servises_Services" FromRole="clients_servises" ToRole="Services" />
+          <NavigationProperty Name="working_staff" Relationship="Self.FK_clients_servises_working_staff" FromRole="clients_servises" ToRole="working_staff" />
+        </EntityType>
+        <EntityType Name="Consultations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="records_on_consultations" Relationship="Self.FK_records_on_consultations_Consultations" FromRole="Consultations" ToRole="records_on_consultations" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="document_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="documents_data" Relationship="Self.FK_documents_data_Documents" FromRole="Documents" ToRole="documents_data" />
+          <NavigationProperty Name="requests_documents" Relationship="Self.FK_requests_documents_Documents" FromRole="Documents" ToRole="requests_documents" />
+        </EntityType>
+        <EntityType Name="kinds_of_services">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_Services_kinds_of_services" FromRole="kinds_of_services" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="records_on_consultations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_client" Type="Int32" Nullable="false" />
+          <Property Name="id_working_staff" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id_consultations" Type="Int32" Nullable="false" />
+          <Property Name="finished" Type="Boolean" Nullable="false" />
+          <Property Name="additional_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_records_on_consultations_Clients" FromRole="records_on_consultations" ToRole="Clients" />
+          <NavigationProperty Name="Consultations" Relationship="Self.FK_records_on_consultations_Consultations" FromRole="records_on_consultations" ToRole="Consultations" />
+          <NavigationProperty Name="working_staff" Relationship="Self.FK_records_on_consultations_working_staff" FromRole="records_on_consultations" ToRole="working_staff" />
+        </EntityType>
+        <EntityType Name="requests_documents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_clients" Type="Int32" Nullable="false" />
+          <Property Name="id_servises" Type="Int32" Nullable="false" />
+          <Property Name="id_document" Type="Int32" Nullable="false" />
+          <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="status" Type="Binary" FixedLength="true" MaxLength="5" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_requests_documents_Clients" FromRole="requests_documents" ToRole="Clients" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_requests_documents_Documents" FromRole="requests_documents" ToRole="Documents" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_requests_documents_Services" FromRole="requests_documents" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_kind_of_services" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="clients_servises" Relationship="Self.FK_clients_servises_Services" FromRole="Services" ToRole="clients_servises" />
+          <NavigationProperty Name="kinds_of_services" Relationship="Self.FK_Services_kinds_of_services" FromRole="Services" ToRole="kinds_of_services" />
+          <NavigationProperty Name="requests_documents" Relationship="Self.FK_requests_documents_Services" FromRole="Services" ToRole="requests_documents" />
+        </EntityType>
+        <EntityType Name="working_staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="clients_servises" Relationship="Self.FK_clients_servises_working_staff" FromRole="working_staff" ToRole="clients_servises" />
+          <NavigationProperty Name="records_on_consultations" Relationship="Self.FK_records_on_consultations_working_staff" FromRole="working_staff" ToRole="records_on_consultations" />
+        </EntityType>
+        <EntityType Name="documents_data">
+          <Key>
+            <PropertyRef Name="title" />
+            <PropertyRef Name="id_document" />
+          </Key>
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_document" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_documents_data_Documents" FromRole="documents_data" ToRole="Documents" />
+        </EntityType>
+        <Association Name="FK_clients_servises_Clients1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="clients_servises" Type="Self.clients_servises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients_servises">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_records_on_consultations_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="records_on_consultations" Type="Self.records_on_consultations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="records_on_consultations">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_requests_documents_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="requests_documents" Type="Self.requests_documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="requests_documents">
+              <PropertyRef Name="id_clients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clients_servises_Services">
+          <End Role="Services" Type="Self.Services" Multiplicity="1" />
+          <End Role="clients_servises" Type="Self.clients_servises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients_servises">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clients_servises_working_staff">
+          <End Role="working_staff" Type="Self.working_staff" Multiplicity="0..1" />
+          <End Role="clients_servises" Type="Self.clients_servises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="working_staff">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="clients_servises">
+              <PropertyRef Name="id_working_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_records_on_consultations_Consultations">
+          <End Role="Consultations" Type="Self.Consultations" Multiplicity="1" />
+          <End Role="records_on_consultations" Type="Self.records_on_consultations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consultations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="records_on_consultations">
+              <PropertyRef Name="id_consultations" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_documents_data_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="documents_data" Type="Self.documents_data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="documents_data">
+              <PropertyRef Name="id_document" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_requests_documents_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="requests_documents" Type="Self.requests_documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="requests_documents">
+              <PropertyRef Name="id_document" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Services_kinds_of_services">
+          <End Role="kinds_of_services" Type="Self.kinds_of_services" Multiplicity="1" />
+          <End Role="Services" Type="Self.Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kinds_of_services">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Services">
+              <PropertyRef Name="id_kind_of_services" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_records_on_consultations_working_staff">
+          <End Role="working_staff" Type="Self.working_staff" Multiplicity="1" />
+          <End Role="records_on_consultations" Type="Self.records_on_consultations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="working_staff">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="records_on_consultations">
+              <PropertyRef Name="id_working_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_requests_documents_Services">
+          <End Role="Services" Type="Self.Services" Multiplicity="1" />
+          <End Role="requests_documents" Type="Self.requests_documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="requests_documents">
+              <PropertyRef Name="id_servises" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="firmaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="clients_servises" EntityType="Self.clients_servises" />
+          <EntitySet Name="Consultations" EntityType="Self.Consultations" />
+          <EntitySet Name="Documents" EntityType="Self.Documents" />
+          <EntitySet Name="kinds_of_services" EntityType="Self.kinds_of_services" />
+          <EntitySet Name="records_on_consultations" EntityType="Self.records_on_consultations" />
+          <EntitySet Name="requests_documents" EntityType="Self.requests_documents" />
+          <EntitySet Name="Services" EntityType="Self.Services" />
+          <EntitySet Name="working_staff" EntityType="Self.working_staff" />
+          <EntitySet Name="documents_data" EntityType="Self.documents_data" />
+          <AssociationSet Name="FK_clients_servises_Clients1" Association="Self.FK_clients_servises_Clients1">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="clients_servises" EntitySet="clients_servises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_records_on_consultations_Clients" Association="Self.FK_records_on_consultations_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="records_on_consultations" EntitySet="records_on_consultations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_requests_documents_Clients" Association="Self.FK_requests_documents_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="requests_documents" EntitySet="requests_documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clients_servises_Services" Association="Self.FK_clients_servises_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="clients_servises" EntitySet="clients_servises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clients_servises_working_staff" Association="Self.FK_clients_servises_working_staff">
+            <End Role="working_staff" EntitySet="working_staff" />
+            <End Role="clients_servises" EntitySet="clients_servises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_records_on_consultations_Consultations" Association="Self.FK_records_on_consultations_Consultations">
+            <End Role="Consultations" EntitySet="Consultations" />
+            <End Role="records_on_consultations" EntitySet="records_on_consultations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_documents_data_Documents" Association="Self.FK_documents_data_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="documents_data" EntitySet="documents_data" />
+          </AssociationSet>
+          <AssociationSet Name="FK_requests_documents_Documents" Association="Self.FK_requests_documents_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="requests_documents" EntitySet="requests_documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Services_kinds_of_services" Association="Self.FK_Services_kinds_of_services">
+            <End Role="kinds_of_services" EntitySet="kinds_of_services" />
+            <End Role="Services" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_records_on_consultations_working_staff" Association="Self.FK_records_on_consultations_working_staff">
+            <End Role="working_staff" EntitySet="working_staff" />
+            <End Role="records_on_consultations" EntitySet="records_on_consultations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_requests_documents_Services" Association="Self.FK_requests_documents_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="requests_documents" EntitySet="requests_documents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="firmaModelStoreContainer" CdmEntityContainer="firmaEntities">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="firmaModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="identification_number" ColumnName="identification_number" />
+                <ScalarProperty Name="passport_ID" ColumnName="passport_ID" />
+                <ScalarProperty Name="passport_Series" ColumnName="passport_Series" />
+                <ScalarProperty Name="residential_address" ColumnName="residential_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients_servises">
+            <EntityTypeMapping TypeName="firmaModel.clients_servises">
+              <MappingFragment StoreEntitySet="clients_servises">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="id_working_staff" ColumnName="id_working_staff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consultations">
+            <EntityTypeMapping TypeName="firmaModel.Consultations">
+              <MappingFragment StoreEntitySet="Consultations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="firmaModel.Documents">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="document_type" ColumnName="document_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kinds_of_services">
+            <EntityTypeMapping TypeName="firmaModel.kinds_of_services">
+              <MappingFragment StoreEntitySet="kinds_of_services">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="records_on_consultations">
+            <EntityTypeMapping TypeName="firmaModel.records_on_consultations">
+              <MappingFragment StoreEntitySet="records_on_consultations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="id_working_staff" ColumnName="id_working_staff" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id_consultations" ColumnName="id_consultations" />
+                <ScalarProperty Name="finished" ColumnName="finished" />
+                <ScalarProperty Name="additional_text" ColumnName="additional_text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requests_documents">
+            <EntityTypeMapping TypeName="firmaModel.requests_documents">
+              <MappingFragment StoreEntitySet="requests_documents">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_clients" ColumnName="id_clients" />
+                <ScalarProperty Name="id_servises" ColumnName="id_servises" />
+                <ScalarProperty Name="id_document" ColumnName="id_document" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="firmaModel.Services">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id_kind_of_services" ColumnName="id_kind_of_services" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="working_staff">
+            <EntityTypeMapping TypeName="firmaModel.working_staff">
+              <MappingFragment StoreEntitySet="working_staff">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="documents_data">
+            <EntityTypeMapping TypeName="firmaModel.documents_data">
+              <MappingFragment StoreEntitySet="documents_data">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id_document" ColumnName="id_document" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

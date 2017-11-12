@@ -1,0 +1,122 @@
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\bin\Debug\kursova.exe.config
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\mainPage.g.cs
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\MainWindow.g.cs
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\App.g.cs
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova_MarkupCompile.cache
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova_MarkupCompile.lref
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\bin\Debug\kursova.exe
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\bin\Debug\kursova.pdb
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\mainPage.baml
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\MainWindow.baml
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova.g.resources
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova.Properties.Resources.resources
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova.csproj.GenerateResource.Cache
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova.exe
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova.pdb
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\InterfacePage1.g.cs
+c:\users\neo\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\InterfacePage1.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\AddData.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\AddData.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\bin\Debug\EntityFramework.dll
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\bin\Debug\EntityFramework.xml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova_Content.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\AddClient.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\AddClient.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\AddDocumentData.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\AddDocumentData.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\InterfacePage2.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\InterfacePage2.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\InterfacePage3.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\InterfacePage3.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\kursova.csproj.ResolveComReference.cache
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\Consultation.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\Consultation.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\Login.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\Registration.g.cs
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\Login.baml
+C:\Users\NEO\documents\visual studio 2015\Projects\kursova\kursova\obj\Debug\Registration.baml
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\obj\Debug\kursova.csprojResolveAssemblyReference.cache
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\obj\Debug\AddOptions.g.cs
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\obj\Debug\AddOptions.baml
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\obj\Debug\kursova.csproj.kursova.exe.config
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\obj\Debug\Interop.SSCE.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.ManagedConnections.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SQLServer.ManagedDTS.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.Management.Collector.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.DTSRuntimeWrap.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.PipelineHost.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.Dmf.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\Microsoft.SqlServer.DTSPipelineWrap.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\ru\Microsoft.SqlServer.Management.Collector.resources.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\ru\Microsoft.SqlServer.Management.Sdk.Sfc.resources.dll
+C:\Users\NEO\Documents\Visual Studio 2015\Projects\kursova\kursova\bin\Debug\ru\Microsoft.SqlServer.Dmf.resources.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\kursova.exe.config
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\Interop.SSCE.dll
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.csproj.ResolveComReference.cache
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.exe
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.pdb
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\kursova.exe.manifest
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\kursova.application
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\kursova.exe
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\kursova.pdb
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\EntityFramework.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.ManagedConnections.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SQLServer.ManagedDTS.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.Management.Collector.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.DTSRuntimeWrap.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.PipelineHost.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.Dmf.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\Microsoft.SqlServer.DTSPipelineWrap.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\EntityFramework.xml
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\ru\Microsoft.SqlServer.Management.Collector.resources.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\ru\Microsoft.SqlServer.Management.Sdk.Sfc.resources.dll
+C:\Users\NEO\Desktop\kursova\kursova\bin\Debug\ru\Microsoft.SqlServer.Dmf.resources.dll
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.csprojResolveAssemblyReference.cache
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.csproj.kursova.exe.config
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddClient.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddData.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddDocumentData.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddOptions.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\Consultation.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\InterfacePage1.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\InterfacePage2.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\InterfacePage3.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\Login.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\mainPage.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\MainWindow.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\Registration.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\App.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova_Content.g.cs
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova_MarkupCompile.cache
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova_MarkupCompile.lref
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddClient.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddData.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddDocumentData.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\AddOptions.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\Consultation.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\InterfacePage1.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\InterfacePage2.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\InterfacePage3.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\Login.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\mainPage.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\MainWindow.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\Registration.baml
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.g.resources
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.Properties.Resources.resources
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.csproj.GenerateResource.Cache
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.exe.manifest
+C:\Users\NEO\Desktop\kursova\kursova\obj\Debug\kursova.application

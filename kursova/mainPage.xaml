@@ -1,0 +1,55 @@
+﻿<Page x:Class="kursova.mainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:kursova"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1025"
+      Title="mainPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/1.jpg"/>
+        </Grid.Background>
+
+
+
+        <Button x:Name="btnInterface1" Content="Работа с базой данных" HorizontalAlignment="Left" Margin="87,186,0,0" VerticalAlignment="Top" Width="313" Click="btnInterface1_Click" FontSize="24" Height="50" Background="#FFF5F56E"/>
+        <Button x:Name="btnInterface2" Content="Поиск данных" HorizontalAlignment="Left" Margin="195,271,0,0" VerticalAlignment="Top" Width="313" Click="btnInterface2_Click" Height="53" FontSize="24" Background="#FFF5F56E"/>
+        <Button x:Name="btnInterface3" Content="Отчетность базы данных" HorizontalAlignment="Left" Margin="277,369,0,0" VerticalAlignment="Top" Width="313" Click="btnInterface3_Click" FontSize="24" Height="53" Background="#FFF5F56E"/>
+        <Label x:Name="label" Content="База данных клиентов и документов " HorizontalAlignment="Left" Height="68" Margin="0,10,0,0" VerticalAlignment="Top" Width="1025" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
+        <Label x:Name="label_Copy" Content="юридической фирмы " Height="59" Margin="0,58,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
+        <GroupBox x:Name="groupBox" Header="Дополнительные возможности" HorizontalAlignment="Left" Height="254" Margin="624,168,0,0" VerticalAlignment="Top" Width="391" FontSize="20" FontStyle="Italic" BorderThickness="3" FontWeight="SemiBold" RenderTransformOrigin="0.5,0.5">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="10"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+        </GroupBox>
+        <Button x:Name="btnBackUp" Content="Сделать Back up базы данных" HorizontalAlignment="Left" Height="51" Margin="637,256,0,0" VerticalAlignment="Top" Width="368" FontSize="24" Click="btnBackUp_Click" HorizontalContentAlignment="Left" BorderThickness="4" ClipToBounds="True" SnapsToDevicePixels="True" Cursor="Hand" Foreground="#FF594747" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFEBEBEB"/>
+                    <GradientStop Color="#FFA5D3E4"/>
+                    <GradientStop Color="#FF36C0F3" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRestore" Content="Востановить базу данных" HorizontalAlignment="Left" Height="51" Margin="637,308,0,0" VerticalAlignment="Top" Width="368" FontSize="24" Click="btnRestore_Click" HorizontalContentAlignment="Left" BorderThickness="4" ClipToBounds="True" SnapsToDevicePixels="True" Cursor="Hand" Foreground="#FF594747" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFEBEBEB"/>
+                    <GradientStop Color="#FFDDDDDD"/>
+                    <GradientStop Color="#FF36C0F3"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Page>

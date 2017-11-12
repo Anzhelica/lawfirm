@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0379f53c6ac940f0aeec275871718ac0" Name="Diagram1">
+        <EntityTypeShape EntityType="firmaModel.Clients" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.clients_servises" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.Consultations" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.Documents" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.kinds_of_services" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.records_on_consultations" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.requests_documents" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.Services" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.working_staff" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="firmaModel.documents_data" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="firmaModel.FK_clients_servises_Clients1" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_records_on_consultations_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_requests_documents_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_clients_servises_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_clients_servises_working_staff" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_records_on_consultations_Consultations" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_documents_data_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_requests_documents_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_Services_kinds_of_services" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_records_on_consultations_working_staff" ManuallyRouted="false" />
+        <AssociationConnector Association="firmaModel.FK_requests_documents_Services" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

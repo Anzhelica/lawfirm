@@ -1,0 +1,87 @@
+﻿<Page x:Class="kursova.InterfacePage3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:kursova"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1025"
+      Title="InterfacePage3">
+
+    <Grid MaxWidth="1025">
+        <ScrollViewer MaxWidth="1025" Background="#FFFFCFFF">
+            <DockPanel Height="645" LastChildFill="False" Width="1025" MaxWidth="1025">
+                <Expander x:Name="expander1" Header="Отчет по количеству клиентов" Height="139" Margin="0,48,0,0" VerticalAlignment="Top" Width="491" FontSize="18" Expanded="expander1_Expanded" Background="{x:Null}">
+                    <ScrollViewer Background="Black">
+                        <StackPanel x:Name="panExp1" Background="#FFFDFDFD">
+
+                            <TextBlock Text="Сформировать отчет по количеству клиентов:"/>
+                            <Button x:Name="btnShow1" Content="Показать" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="123" Click="btnShow1_Click" FontWeight="Bold" FontStyle="Italic"/>
+                            <Button x:Name="btnOpen1" Content="Открыть в MS Word" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="203" Click="btnOpen1_Click" FontWeight="Bold" FontStyle="Italic"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Expander>
+                <Expander x:Name="expander2" Header="Отчет штата работников" Height="139" Margin="0,46,0,0" VerticalAlignment="Top" Width="478" FontSize="16" Expanded="expander2_Expanded" Background="{x:Null}">
+                    <ScrollViewer >
+                        <StackPanel x:Name="panExp2" Background="#FFFDFDFD">
+                            <TextBlock Text="Сформировать отчет по штату работников:"/>
+                            <Button x:Name="btnShow2" Content="Показать" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="123" Click="btnShow2_Click" FontWeight="Bold" FontStyle="Italic"/>
+                            <Button x:Name="btnOpen2" Content="Открыть в MS Word" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="195" Click="btnOpen2_Click" FontWeight="Bold" FontStyle="Italic"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Expander>
+                <Expander x:Name="expander3" Header="Отчет популярных работников" Height="139" Margin="-1449,199,3,0" VerticalAlignment="Top" Width="478" FontSize="16" Expanded="expander3_Expanded" Background="{x:Null}">
+                    <ScrollViewer>
+                        <StackPanel x:Name="panExp3" Background="#FFFDFDFD">
+                            <TextBlock Text="Сформировать отчет работников к коротым чаще всегда обращаются:" TextWrapping="Wrap"/>
+                            <Button x:Name="btnShow3" Content="Показать" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="123" Click="btnShow3_Click" FontWeight="Bold" FontStyle="Italic"/>
+                            <Button x:Name="btnOpen3" Content="Открыть в MS Word" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="183" Margin="2,0,0,0" Click="btnOpen3_Click" FontWeight="Bold" FontStyle="Italic"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Expander>
+                <Expander x:Name="expander4" Header="Отчет популярных документов" Height="139" Margin="-477,202,0,0" VerticalAlignment="Top" Width="478" FontSize="18" Expanded="expander4_Expanded" Background="{x:Null}">
+                    <ScrollViewer>
+                        <StackPanel x:Name="panExp4" Background="#FFFDFDFD">
+                            <TextBlock Text="Сформировать отчет по документах, которые чаще всего заказывают:" TextWrapping="Wrap"/>
+                            <Button x:Name="btnShow4" Content="Показать" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="123" Click="btnShow4_Click" FontWeight="Bold" FontStyle="Italic"/>
+                            <Button x:Name="btnOpen4" Content="Открыть в MS Word" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="204" Click="btnOpen4_Click" FontWeight="Bold" FontStyle="Italic"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Expander>
+
+                <Expander x:Name="expander5" Header="Сгенерировать чек" Height="127" Margin="-1449,353,3,0" VerticalAlignment="Top" Width="469" FontSize="18" Background="{x:Null}">
+                    <ScrollViewer >
+                        <StackPanel x:Name="panExp5" Background="#FFFDFDFD">
+                            <TextBlock Text="Заполните слудующую информацию:"/>
+                            <Label x:Name="label" Content="ФИО клиента" HorizontalAlignment="Center" Height="32" VerticalAlignment="Top" Width="124" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                            <TextBox x:Name="txtFIO" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" VerticalAlignment="Top" Width="458" KeyUp="txtFIO_KeyUp"/>
+                            <Label x:Name="label1" Content="Подтвердите выбор:" HorizontalAlignment="Center" Height="38" VerticalAlignment="Top" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                            <ComboBox x:Name="EnterSelect" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="456" SelectionChanged="EnterSelect_SelectionChanged"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Expander>
+            </DockPanel>
+
+        </ScrollViewer>
+        <Label x:Name="label2" Content="" HorizontalAlignment="Left" Height="50" Margin="22,560,0,0" VerticalAlignment="Top" Width="56" HorizontalContentAlignment="Center" FontSize="28" MouseLeftButtonDown="label2_MouseLeftButtonDown" Cursor="Hand">
+            <Label.Background>
+                <ImageBrush ImageSource="Resources/iconmonstr-arrow-28-240.png" Opacity="0.485">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Label.Background>
+        </Label>
+        <Label x:Name="label3" Content="Отчеты" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="1015" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold">
+            <Label.Background>
+                <SolidColorBrush Color="White" Opacity="0.825"/>
+            </Label.Background>
+        </Label>
+
+    </Grid>
+</Page>

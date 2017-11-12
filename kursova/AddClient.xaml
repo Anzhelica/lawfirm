@@ -1,0 +1,40 @@
+﻿<Window x:Class="kursova.AddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursova"
+        mc:Ignorable="d"
+        Title="Добавить" Height="500" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFE2DDDD">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="366*"/>
+            <RowDefinition Height="48*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="294*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnOk" Grid.ColumnSpan="3" Content="Готово!" Margin="24,5,10,10" Click="btnOk_Click" Grid.Row="3" FontSize="20" Grid.Column="1" FontWeight="Bold"/>
+        <StackPanel x:Name="pannel3" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="292" Grid.Column="2" Grid.RowSpan="3"/>
+        <StackPanel x:Name="pannel4" HorizontalAlignment="Left" Height="29" Margin="0,1,0,0" VerticalAlignment="Top" Width="220"/>
+        <StackPanel x:Name="pannel5" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="220" Margin="0,35,0,0" Grid.RowSpan="3"/>
+
+        <ScrollViewer Grid.ColumnSpan="5" Margin="10,9,10,0" Grid.Row="2" VerticalScrollBarVisibility="Auto" Background="#FFF7F3F3">
+            <WrapPanel Height="347" Width="652">
+                <StackPanel x:Name="pannel" ScrollViewer.HorizontalScrollBarVisibility="Auto" FlowDirection="RightToLeft" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" Height="332" Width="204"/>
+                <StackPanel x:Name="panel" ScrollViewer.HorizontalScrollBarVisibility="Auto" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" Height="327" Width="429"/>
+            </WrapPanel>
+        </ScrollViewer>
+        <DockPanel HorizontalAlignment="Left" Height="48" LastChildFill="False" Margin="101,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="153" Grid.Column="4">
+            <Button x:Name="btnPrint" Content="Печать" HorizontalAlignment="Left" Height="34" Margin="1,4,0,0" Grid.Row="3" VerticalAlignment="Top" Width="149" Grid.Column="2" FontSize="22" Visibility="Hidden"/>
+
+        </DockPanel>
+
+    </Grid>
+</Window>

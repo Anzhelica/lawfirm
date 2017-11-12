@@ -1,0 +1,125 @@
+﻿<Page x:Class="kursova.InterfacePage2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:kursova"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1025"
+      Title="InterfacePage2">
+
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#FFFFE9CF" Opacity="0.82"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="244*"/>
+        </Grid.RowDefinitions>
+        <DockPanel HorizontalAlignment="Left" Height="68" LastChildFill="False" VerticalAlignment="Top" Width="1025">
+            <Label x:Name="label" Content="Фильтр" Width="172" FontSize="36"/>
+            <TextBox x:Name="textBox" TextWrapping="Wrap" Width="311" FontSize="18" Margin="0,10,0,18" TextChanged="textBox_TextChanged"/>
+            <Label x:Name="label1" Content="в таблице" Width="178" FontSize="36" Margin="0,0,0,10"/>
+        </DockPanel>
+        <ComboBox x:Name="comboBox" Height="37" Margin="710,14,31,0" VerticalAlignment="Top" IsEditable="True" SelectionChanged="comboBox_SelectionChanged" FontSize="18"/>
+        <DockPanel Height="402" LastChildFill="False" VerticalAlignment="Top" Grid.Row="1">
+            <DataGrid x:Name="dataGrid" Height="407" VerticalAlignment="Top" Width="790" FontSize="18" SelectionUnit="CellOrRowHeader"  MouseLeftButtonDown="dataGrid_MouseLeftButtonDown" Margin="0,-1,0,-4" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="False" IsReadOnly="True"/>
+            <ListView x:Name="listView" Height="262" VerticalAlignment="Top" Width="218" FontSize="18" SelectionChanged="listView_SelectionChanged" MouseLeftButtonDown="TextBox_MouseLeftButtonDown">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Дополнительные возможности" Width="auto"/>
+                    </GridView>
+                </ListView.View>
+                <ListView.Items>
+                    <TextBox Text="Выбрать клиента по количеству обращений" TextWrapping="Wrap" FontSize="16" AcceptsReturn="True" IsReadOnly="True" MaxWidth="210"  Cursor="Hand" MouseLeftButtonDown="TextBox_MouseLeftButtonDown">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger
+                        Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type ListBoxItem}, AncestorLevel=1}}"
+                        Value="True">
+                                        <Setter Property="IsHitTestVisible" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBox Text="Выбрать клиентов по последнему обращению" TextWrapping="Wrap" FontSize="16" AcceptsReturn="True" IsReadOnly="True" MaxWidth="210" Cursor="Hand">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger
+                        Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type ListBoxItem}, AncestorLevel=1}}"
+                        Value="True">
+                                        <Setter Property="IsHitTestVisible" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBox Text="Выбрать клиентов по обращениям за конкретные периоды" TextWrapping="Wrap" FontSize="16" AcceptsReturn="True" IsReadOnly="True" MaxWidth="210" Cursor="Hand">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger
+                        Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type ListBoxItem}, AncestorLevel=1}}"
+                        Value="True">
+                                        <Setter Property="IsHitTestVisible" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBox Text="Выбрать текущих клиентов" TextWrapping="Wrap" FontSize="16" AcceptsReturn="True" IsReadOnly="True" MaxWidth="210" Cursor="Hand">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger
+                        Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, 
+                    AncestorType={x:Type ListBoxItem}, AncestorLevel=1}}"
+                        Value="True">
+                                        <Setter Property="IsHitTestVisible" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </ListView.Items>
+            </ListView>
+        </DockPanel>
+        <ScrollViewer Margin="0,68,0,10">
+            <WrapPanel x:Name="pannelFind">
+            </WrapPanel>
+        </ScrollViewer>
+        <Button x:Name="btnFind" Content="Ok" HorizontalAlignment="Left" Height="39" Margin="398,411,0,0" Grid.Row="1" VerticalAlignment="Top" Width="129" FontSize="24" Click="btnFind_Click"/>
+
+        <TextBox x:Name="txtcount" HorizontalAlignment="Left" Height="28" Margin="848,298,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontSize="18"/>
+        <DatePicker x:Name="dateFrom" HorizontalAlignment="Left" Height="34" Margin="822,362,0,0" Grid.Row="1" VerticalAlignment="Top" Width="172" FontSize="18"/>
+        <DatePicker x:Name="dateTo" HorizontalAlignment="Left" Height="34" Margin="822,399,0,0" Grid.Row="1" VerticalAlignment="Top" Width="172" FontSize="18"/>
+        <Label x:Name="label2" Content="" HorizontalAlignment="Left" Height="47" Margin="10,403,0,0" Grid.Row="1" VerticalAlignment="Top" Width="68" FontSize="22" Cursor="Hand" MouseLeftButtonDown="label2_MouseLeftButtonDown">
+            <Label.Background>
+                <ImageBrush ImageSource="Resources/iconmonstr-arrow-28-240.png">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="180" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Label.Background>
+        </Label>
+        <Label x:Name="label3" Content="количество обращений" HorizontalAlignment="Left" Height="31" Margin="806,267,0,0" Grid.Row="1" VerticalAlignment="Top" Width="188" FontSize="16"/>
+        <Label x:Name="label4" Content="Ввод даты:" HorizontalAlignment="Left" Height="31" Margin="822,326,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" FontSize="16" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtStatus" HorizontalAlignment="Left" Height="50" Margin="556,411,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" AcceptsReturn="True" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Page>
